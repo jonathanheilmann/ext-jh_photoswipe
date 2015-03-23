@@ -1,0 +1,18 @@
+plugin.tx_jhphotoswipe.view {
+	# cat=plugin.tx_jhphotoswipe/file; type=string; label=Path to template root
+	templateRootPath = EXT:jh_photoswipe/Resources/Private/Templates/
+	# cat=plugin.tx_jhphotoswipe/file; type=string; label=Path to template partials
+	partialRootPath = EXT:jh_photoswipe/Resources/Private/Partials/
+	# cat=plugin.tx_jhphotoswipe/file; type=string; label=Path to template layouts
+	layoutRootPath = EXT:jh_photoswipe/Resources/Private/Layouts/
+}
+
+# cat=plugin.tx_jhphotoswipe//010; type=string; label = photoswipe.css
+plugin.tx_jhphotoswipe.includePhotoswipeCss = EXT:jh_photoswipe/Resources/Public/css/photoswipe.css
+# cat=plugin.tx_jhphotoswipe//011; type=string; label = default-skin/default-skin.css
+plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin = EXT:jh_photoswipe/Resources/Public/default-skin/default-skin.css
+
+# cat=plugin.tx_jhphotoswipe//020; type=string; label = photoswipe.min.js
+plugin.tx_jhphotoswipe.includePhotoswipeJs = EXT:jh_photoswipe/Resources/Public/JavaScript/photoswipe.min.js
+# cat=plugin.tx_jhphotoswipe//021; type=string; label = photoswipe-ui-default.min.js
+plugin.tx_jhphotoswipe.includePhotoswipeUiJs = EXT:jh_photoswipe/Resources/Public/JavaScript/photoswipe-ui-default.min.js

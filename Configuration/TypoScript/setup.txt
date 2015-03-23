@@ -1,0 +1,59 @@
+plugin.tx_jhphotoswipe {
+	view {
+		templateRootPath = {$plugin.tx_jhphotoswipe.view.templateRootPath}
+		partialRootPath = {$plugin.tx_jhphotoswipe.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_jhphotoswipe.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_jhphotoswipe.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+# Add css files to page
+page.includeCSS {
+  tx_jhphotoswipe10 = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
+  tx_jhphotoswipe10.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
+
+  tx_jhphotoswipe20 = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
+  tx_jhphotoswipe20.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
+}
+
+# Add JavaScript files to page
+page.includeJSFooterlibs {
+  tx_jhphotoswipe10 = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
+  tx_jhphotoswipe10.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
+
+  tx_jhphotoswipe20 = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
+  tx_jhphotoswipe20.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
+}
+
+[global]
+
+plugin.tx_jhphotoswipe {
+	settings {
+		width = {$styles.content.imgtext.linkWrap.width}
+		renderMsrc = 1
+		msrcWidth = 265m
+		photoswipeOptions = TEXT
+		photoswipeOptions.value (
+			galleryUID: {field:uid}
+		)
+		photoswipeOptions.stdWrap.insertData = 1
+	}
+}
+page.footerData {
+	8410 = FLUIDTEMPLATE
+	8410 {
+		file = {$plugin.tx_jhphotoswipe.view.partialRootPath}Pi1/pswpLayout.html
+	}
+}
+
+plugin.tx_jhphotoswipe._CSS_DEFAULT_STYLE (
+	.cursor-pointer:hover {
+		cursor: pointer;
+	}
+)

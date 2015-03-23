@@ -1,0 +1,72 @@
+{namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
+
+<!-- preview image -->
+<jh:extension.loaded extensionName="bootstrap_package">
+	<f:then>
+		<div class="image-{previewOrient} image-above">
+			<div class="image-wrap">
+				<f:if condition="{0: previewOrient} == {0: 'center'}"><div class="image-center-outer"><div class="image-center-inner"></f:if>
+				<figure class="image">
+					<f:image image="{previewImage}" maxHeight="{settings.flexform.preview_height}" maxWidth="{settings.flexform.preview_width}" id="jh-photoswipe-{data.uid}" class="cursor-pointer" />
+					<f:if condition="{previewImageCaption}">
+						<figcaption class="caption">{previewImageCaption}<br/><f:translate key="clickToOpenGallery" default="(Click image to open gallery)"/></figcaption>
+					</f:if>
+				</figure>
+				<f:if condition="{0: previewOrient} == {0: 'center'}"></div></div></f:if>
+			</div>
+		</div>
+	</f:then>
+	<f:else>
+		<div class="csc-textpic csc-textpic-{previewOrient} csc-textpic-above">
+			<div class="csc-textpic-imagewrap">
+				<f:if condition="{0: previewOrient} == {0: 'center'}"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"></f:if>
+				<div class="csc-textpic-image csc-textpic-last">
+					<f:if condition="{previewImageCaption}">
+						<f:then>
+							<table>
+								<caption class="csc-textpic-caption">{previewImageCaption}<br/><f:translate key="clickToOpenGallery" default="(Click image to open gallery)"/></caption>
+								<tbody>
+									<tr>
+										<td>
+											<f:image image="{previewImage}" maxHeight="{settings.flexform.preview_height}" maxWidth="{settings.flexform.preview_width}" id="jh-photoswipe-{data.uid}" class="cursor-pointer" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</f:then>
+						<f:else>
+							<f:image image="{previewImage}" maxHeight="{settings.flexform.preview_height}" maxWidth="{settings.flexform.preview_width}" id="jh-photoswipe-{data.uid}" class="cursor-pointer" />
+						</f:else>
+					</f:if>
+				</div>
+				<f:if condition="{0: previewOrient} == {0: 'center'}"></div></div></f:if>
+			</div>
+		</div>
+	</f:else>
+</jh:extension.loaded>
+
+<!-- javascript for gallery -->
+<script type="text/javascript">
+	document.getElementById('jh-photoswipe-{data.uid}').onclick = function openPhotoSwipe{data.uid}() {
+		var pswpElement = document.querySelectorAll('.pswp')[0];
+
+		var items = [
+			<f:for each="{files}" as="file" iteration="index">
+				<jh:photoswipeItem item="{file}" width="{settings.width}" renderMsrc="{settings.renderMsrc}" msrcWidth="{settings.msrcWidth}" />
+				<f:if condition="{index.isLast}">
+					<f:else>
+						,
+					</f:else>
+				</f:if>
+			</f:for>
+		];
+
+		// define options
+		var options = {
+			<f:cObject typoscriptObjectPath="plugin.tx_jhphotoswipe.settings.photoswipeOptions" data="{data}"/>
+		};
+
+		var gallery{data.uid} = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+		gallery{data.uid}.init();
+	};
+</script>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-03-22T08:23:30Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="clickToOpenGallery" approved="yes" xml:space="preserve">
+			<source>(Click image to open gallery)</source>
+			<target>(Bild anklicken um Galerie zu öffnen)</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions" approved="yes" xml:space="preserve">
+			<source>Settings</source>
+			<target>Einstellungen</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.files" approved="yes" xml:space="preserve">
+			<source>Files</source>
+			<target>Dateien</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly" approved="yes" xml:space="preserve">
+			<source>First file is preview only</source>
+			<target>Erste Datei ist nur Vorschau</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_height" approved="yes" xml:space="preserve">
+			<source>Max height of preview</source>
+			<target>Maximale Höhe der Vorschau</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_width" approved="yes" xml:space="preserve">
+			<source>Max width of preview</source>
+			<target>Maximale Breite der Vorschau</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

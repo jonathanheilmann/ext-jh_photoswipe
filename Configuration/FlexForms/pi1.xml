@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.flexform.files>
+						<TCEforms>
+							<label>LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.files</label>
+							<config>
+								<type>inline</type>
+								<foreign_table>sys_file_reference</foreign_table>
+								<foreign_field>uid_foreign</foreign_field>
+								<foreign_sortby>sorting_foreign</foreign_sortby>
+								<foreign_table_field>tablenames</foreign_table_field>
+								<foreign_match_fields type="array">
+									<fieldname>tx_jhphotoswipe_pi1</fieldname>
+									<tablenames>tt_content</tablenames>
+									<table_local>sys_file</table_local>
+								</foreign_match_fields>
+								<foreign_label>uid_local</foreign_label>
+								<foreign_selector>uid_local</foreign_selector>
+								<foreign_selector_fieldTcaOverride type="array">
+									<config type="array">
+										<appearance type="array">
+											<elementBrowserType>file</elementBrowserType>
+											<elementBrowserAllowed>gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai</elementBrowserAllowed>
+										</appearance>
+									</config>
+								</foreign_selector_fieldTcaOverride>
+								<appearance type="array">
+									<createNewRelationLinkTitle>LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
+									<enabledControls type="array">
+										<delete>1</delete>
+										<dragdrop>1</dragdrop>
+										<hide>0</hide>
+										<info>1</info>
+										<localize>1</localize>
+									</enabledControls>
+									<headerThumbnail type="array">
+										<field>uid_local</field>
+										<height>45c</height>
+										<width>45</width>
+									</headerThumbnail>
+									<useSortable>1</useSortable>
+									<showPossibleLocalizationRecords>0</showPossibleLocalizationRecords>
+									<showRemovedLocalizationRecords>0</showRemovedLocalizationRecords>
+									<showSynchronizationLink>0</showSynchronizationLink>
+									<showAllLocalizationLink>0</showAllLocalizationLink>
+								</appearance>
+								<behaviour type="array">
+									<localizationMode>select</localizationMode>
+									<localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+								</behaviour>
+								<maxitems>99</maxitems>
+								<minitems>1</minitems>
+								<foreign_types type="array">
+									<numIndex index="2" type="array">
+										<showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;jhPhotoswipePalette,--palette--;;filePalette</showitem>
+									</numIndex>
+								</foreign_types>
+							</config>
+						</TCEforms>
+					</settings.flexform.files>
+					<settings.flexform.firstFilePreviewOnly>
+						<TCEforms>
+							<label>LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.firstFilePreviewOnly</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.flexform.firstFilePreviewOnly>
+					<settings.flexform.preview_width>
+						<TCEforms>
+							<label>LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.preview_width</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>5</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.flexform.preview_width>
+					<settings.flexform.preview_height>
+						<TCEforms>
+							<label>LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.preview_height</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>5</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.flexform.preview_height>
+					<settings.flexform.preview_orient>
+						<TCEforms>
+							<label>LLL:EXT:cms/locallang_ttc.xlf:imageorient</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.0</numIndex>
+										<numIndex index="1">0</numIndex>
+										<numIndex index="2">selicons/above_center.gif</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.1</numIndex>
+										<numIndex index="1">1</numIndex>
+										<numIndex index="2">selicons/above_right.gif</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.2</numIndex>
+										<numIndex index="1">2</numIndex>
+										<numIndex index="2">selicons/above_left.gif</numIndex>
+									</numIndex>
+								</items>
+								<selicon_cols>6</selicon_cols>
+                			<default>0</default>
+                			<iconsInOptionTags>1</iconsInOptionTags>
+							</config>
+						</TCEforms>
+					</settings.flexform.preview_orient>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
