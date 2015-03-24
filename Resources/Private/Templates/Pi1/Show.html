@@ -1,6 +1,5 @@
 {namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
 
-<!-- preview image -->
 <jh:extension.loaded extensionName="bootstrap_package">
 	<f:then>
 		<div class="image-{previewOrient} image-above">
@@ -45,9 +44,8 @@
 	</f:else>
 </jh:extension.loaded>
 
-<!-- javascript for gallery -->
-<script type="text/javascript">
-	document.getElementById('jh-photoswipe-{data.uid}').onclick = function openPhotoSwipe{data.uid}() {
+<jh:addJsFooterInlineCode name="tx_jhphotoswipe100_{data.uid}" compress="false">
+	var openPhotoSwipe{data.uid} = function() {
 		var pswpElement = document.querySelectorAll('.pswp')[0];
 
 		var items = [
@@ -69,4 +67,5 @@
 		var gallery{data.uid} = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 		gallery{data.uid}.init();
 	};
-</script>
+	document.getElementById('jh-photoswipe-{data.uid}').onclick = openPhotoSwipe{data.uid};
+</jh:addJsFooterInlineCode>
