@@ -24,15 +24,16 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  *
  *
  * @author Jonathan Heilmann <mail@jonathan-heilmann.de>
  * @package JhPhotoswipe
- * @subpackage ViewHelpers\Image
+ * @subpackage ViewHelpers
  */
-class PhotoswipeItemViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class PhotoswipeItemViewHelper extends AbstractViewHelper {
 
 	/**
 	 * Initialize arguments
