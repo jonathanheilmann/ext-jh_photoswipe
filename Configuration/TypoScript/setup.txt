@@ -29,6 +29,9 @@ page.includeJSFooterlibs {
 
   tx_jhphotoswipe20 = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
   tx_jhphotoswipe20.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
+
+  tx_jhphotoswipe30 = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
+  tx_jhphotoswipe30.if.isTrue = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
 }
 
 [global]
@@ -48,7 +51,7 @@ plugin.tx_jhphotoswipe {
 page.footerData {
 	8410 = FLUIDTEMPLATE
 	8410 {
-		file = {$plugin.tx_jhphotoswipe.view.partialRootPath}Pi1/pswpLayout.html
+		file = {$plugin.tx_jhphotoswipe.view.templateRootPath}pswpLayout.html
 	}
 }
 

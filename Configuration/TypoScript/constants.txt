@@ -8,11 +8,13 @@ plugin.tx_jhphotoswipe.view {
 }
 
 # cat=plugin.tx_jhphotoswipe//010; type=string; label = photoswipe.css
-plugin.tx_jhphotoswipe.includePhotoswipeCss = EXT:jh_photoswipe/Resources/Public/css/photoswipe.css
+plugin.tx_jhphotoswipe.includePhotoswipeCss = EXT:jh_photoswipe/Resources/Public/Contrib/PhotoSwipe/photoswipe.css
 # cat=plugin.tx_jhphotoswipe//011; type=string; label = default-skin/default-skin.css
-plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin = EXT:jh_photoswipe/Resources/Public/default-skin/default-skin.css
+plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin = EXT:jh_photoswipe/Resources/Public/Contrib/PhotoSwipe/default-skin/default-skin.css
 
 # cat=plugin.tx_jhphotoswipe//020; type=string; label = photoswipe.min.js
-plugin.tx_jhphotoswipe.includePhotoswipeJs = EXT:jh_photoswipe/Resources/Public/JavaScript/photoswipe.min.js
+plugin.tx_jhphotoswipe.includePhotoswipeJs = EXT:jh_photoswipe/Resources/Public/Contrib/PhotoSwipe/photoswipe.min.js
 # cat=plugin.tx_jhphotoswipe//021; type=string; label = photoswipe-ui-default.min.js
-plugin.tx_jhphotoswipe.includePhotoswipeUiJs = EXT:jh_photoswipe/Resources/Public/JavaScript/photoswipe-ui-default.min.js
+plugin.tx_jhphotoswipe.includePhotoswipeUiJs = EXT:jh_photoswipe/Resources/Public/Contrib/PhotoSwipe/photoswipe-ui-default.min.js
+# cat=plugin.tx_jhphotoswipe//021; type=string; label = openGallery.js
+plugin.tx_jhphotoswipe.includeOpenGalleryJs = EXT:jh_photoswipe/Resources/Public/JavaScript/openGallery.min.js
