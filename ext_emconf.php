@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'PhotoSwipe',
-	'description' => '',
+	'description' => 'Adds the wonderful Photoswipe (http://photoswipe.com/) JavaScript gallery as a plugin to TYPO3 CMS.',
 	'category' => 'plugin',
 	'author' => 'Jonathan Heilmann',
 	'author_email' => 'mail@jonathan-heilmann.de',
