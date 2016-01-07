@@ -1,5 +1,6 @@
 <?php
 namespace Heilmann\JhPhotoswipe\ViewHelpers;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -33,32 +34,34 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  * @package JhPhotoswipe
  * @subpackage ViewHelpers
  */
-class AddJsFooterInlineCodeViewHelper extends AbstractViewHelper {
+class AddJsFooterInlineCodeViewHelper extends AbstractViewHelper
+{
 
-	/**
-	 * Initialize arguments
-	 */
-	public function initializeArguments() {
-		$this->registerArgument('name', 'string', 'Name argument - see PageRenderer documentation', TRUE);
-		$this->registerArgument('compress', 'boolean', 'Compress argument - see PageRenderer documentation', FALSE, TRUE);
-		$this->registerArgument('forceOnTop', 'boolean', 'ForceOnTop argument - see PageRenderer documentation', FALSE, FALSE);
-	}
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('name', 'string', 'Name argument - see PageRenderer documentation', true);
+        $this->registerArgument('compress', 'boolean', 'Compress argument - see PageRenderer documentation', false, true);
+        $this->registerArgument('forceOnTop', 'boolean', 'ForceOnTop argument - see PageRenderer documentation', false, false);
+    }
 
-	/**
-	 *
-	 *
-	 * @param string block
-	 * @return void
-	 */
-	public function render($block = '') {
-		if (empty($this->arguments['name'])) {
-			throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('You must specify a name.', 1382284106);
-		}
-		if (!$block) {
-			$block = $this->renderChildren();
-		}
-		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($this->arguments['name'], $block, $this->arguments['compress'], $this->arguments['forceOnTop']);
-		return;
-	}
-
+    /**
+     *
+     *
+     * @param string block
+     * @return void
+     */
+    public function render($block = '')
+    {
+        if (empty($this->arguments['name'])) {
+            throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('You must specify a name.', 1382284106);
+        }
+        if (!$block) {
+            $block = $this->renderChildren();
+        }
+        $GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($this->arguments['name'], $block, $this->arguments['compress'], $this->arguments['forceOnTop']);
+        return;
+    }
 }

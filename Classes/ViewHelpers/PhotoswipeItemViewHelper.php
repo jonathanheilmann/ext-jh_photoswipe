@@ -1,5 +1,6 @@
 <?php
 namespace Heilmann\JhPhotoswipe\ViewHelpers;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -32,62 +33,68 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
  * Class PhotoswipeItemViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers
  */
-class PhotoswipeItemViewHelper extends AbstractViewHelper {
+class PhotoswipeItemViewHelper extends AbstractViewHelper
+{
 
-	/**
-	 * Initialize arguments
-	 */
-	public function initializeArguments() {
-		parent::initializeArguments();
-	}
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+    }
 
-	/**
-	 * Render method
-	 *
-	 * @param mixed $item PhotoSwipe item
-	 * @param mixed $width
-	 * @param int $maxWidth
-	 * @param int $maxHeight
-	 * @param boolean $renderMsrc
-	 * @param mixed $msrcWidth
-	 * @return string
-	 */
-	public function render($item = NULL, $width = NULL, $maxWidth = NULL, $maxHeight = NULL, $renderMsrc = FALSE, $msrcWidth = '256m') {
-		if (is_null($item)) {
-			throw new Exception('You must either specify a string src or a File object.', 1382284106);
-		}
+    /**
+     * Render method
+     *
+     * @param mixed $item PhotoSwipe item
+     * @param mixed $width
+     * @param int $maxWidth
+     * @param int $maxHeight
+     * @param boolean $renderMsrc
+     * @param mixed $msrcWidth
+     * @return string
+     */
+    public function render($item = null, $width = null, $maxWidth = null, $maxHeight = null, $renderMsrc = false, $msrcWidth = '256m')
+    {
+        if (is_null($item)) {
+            throw new Exception('You must either specify a string src or a File object.', 1382284106);
+        }
 
-		// Get FAL properties
-		$properties = $item->getOriginalFile()->getProperties();
-		ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), TRUE, FALSE, FALSE);
+        // Get FAL properties
+        $properties = $item->getOriginalFile()->getProperties();
+        ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), true, false, false);
 
-		// Render image
-		$imageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\ImageService');
-		$image = $imageService->getImage('', $item, TRUE);
-		$processingInstructions = array(
-			'width' => $width,
-			/*'maxWidth' => $maxWidth,
-			'maxHeight' => $maxHeight,*/
-		);
-		$processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
+        // Render image
+        $imageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\ImageService');
+        $image = $imageService->getImage('', $item, true);
+        $processingInstructions = array(
+            'width' => $width,
+            /*'maxWidth' => $maxWidth,
+            'maxHeight' => $maxHeight,*/
+        );
+        $processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
 
-		// Render medium image
-		$processingInstructions = array(
-			'width' => $msrcWidth,
-		);
-		$processedMsrc = $imageService->applyProcessingInstructions($image, $processingInstructions);
+        // Render medium image
+        $processingInstructions = array(
+            'width' => $msrcWidth,
+        );
+        $processedMsrc = $imageService->applyProcessingInstructions($image, $processingInstructions);
 
-		// Render result to return
-		$result = "{\n
+        // Render result to return
+        $result = "{\n
 			src: '".$imageService->getImageUri($processedImage)."',\n
 			w: ".$processedImage->getProperty('width').",\n
 			h: ".$processedImage->getProperty('height');
-		if ($renderMsrc === TRUE) {$result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";}
-		if (!empty($properties['description'])) {$result .= ",\n title:'".$properties['description']."'";}
-		//if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
-		$result .= "\n}";
+        if ($renderMsrc === true) {
+            $result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";
+        }
+        if (!empty($properties['description'])) {
+            $result .= ",\n title:'".$properties['description']."'";
+        }
+        //if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
+        $result .= "\n}";
 
-		return $result;
-	}
-
+        return $result;
+    }
 }
