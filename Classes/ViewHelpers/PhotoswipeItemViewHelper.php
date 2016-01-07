@@ -23,15 +23,14 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 
 /**
- *
- *
- * @author Jonathan Heilmann <mail@jonathan-heilmann.de>
- * @package JhPhotoswipe
- * @subpackage ViewHelpers
+ * Class PhotoswipeItemViewHelper
+ * @package Heilmann\JhPhotoswipe\ViewHelpers
  */
 class PhotoswipeItemViewHelper extends AbstractViewHelper {
 
@@ -45,26 +44,25 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper {
 	/**
 	 * Render method
 	 *
-	 * @param mixed item PhotoSwipe item
-	 * @param mixed width
-	 * @param int maxWidth
-	 * @param int maxHeight
-	 * @param boolean renderMsrc
-	 * @param mixed msrcWidth
+	 * @param mixed $item PhotoSwipe item
+	 * @param mixed $width
+	 * @param int $maxWidth
+	 * @param int $maxHeight
+	 * @param boolean $renderMsrc
+	 * @param mixed $msrcWidth
 	 * @return string
 	 */
 	public function render($item = NULL, $width = NULL, $maxWidth = NULL, $maxHeight = NULL, $renderMsrc = FALSE, $msrcWidth = '256m') {
-		$result = '';
 		if (is_null($item)) {
-			throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('You must either specify a string src or a File object.', 1382284106);
+			throw new Exception('You must either specify a string src or a File object.', 1382284106);
 		}
 
 		// Get FAL properties
 		$properties = $item->getOriginalFile()->getProperties();
-		\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), TRUE, FALSE, FALSE);
+		ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), TRUE, FALSE, FALSE);
 
 		// Render image
-		$imageService = GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Service\ImageService');
+		$imageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\ImageService');
 		$image = $imageService->getImage('', $item, TRUE);
 		$processingInstructions = array(
 			'width' => $width,
