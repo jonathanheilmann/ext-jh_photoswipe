@@ -1,8 +1,17 @@
 plugin.tx_jhphotoswipe {
 	view {
-		templateRootPath = {$plugin.tx_jhphotoswipe.view.templateRootPath}
-		partialRootPath = {$plugin.tx_jhphotoswipe.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_jhphotoswipe.view.layoutRootPath}
+		templateRootPaths {
+			0 = EXT:jh_photoswipe/Resources/Private/Templates/
+			1 = {$plugin.tx_jhphotoswipe.view.templateRootPath}
+		}
+		partialRootPaths {
+            0 = EXT:jh_photoswipe/Resources/Private/Partials/
+            1 = {$plugin.tx_jhphotoswipe.view.partialRootPath}
+        }
+		layoutRootPaths {
+            0 =  EXT:jh_photoswipe/Resources/Private/Layouts/
+            1 = {$plugin.tx_jhphotoswipe.view.layoutRootPath}
+        }
 	}
 	persistence {
 		storagePid = {$plugin.tx_jhphotoswipe.persistence.storagePid}
@@ -33,8 +42,6 @@ page.includeJSFooterlibs {
   tx_jhphotoswipe30 = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
   tx_jhphotoswipe30.if.isTrue = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
 }
-
-[global]
 
 plugin.tx_jhphotoswipe {
 	settings {
