@@ -22,27 +22,6 @@ plugin.tx_jhphotoswipe {
 	}
 }
 
-# Add css files to page
-page.includeCSS {
-  tx_jhphotoswipe10 = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
-  tx_jhphotoswipe10.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
-
-  tx_jhphotoswipe20 = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
-  tx_jhphotoswipe20.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
-}
-
-# Add JavaScript files to page
-page.includeJSFooterlibs {
-  tx_jhphotoswipe10 = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
-  tx_jhphotoswipe10.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
-
-  tx_jhphotoswipe20 = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
-  tx_jhphotoswipe20.if.isTrue = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
-
-  tx_jhphotoswipe30 = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
-  tx_jhphotoswipe30.if.isTrue = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
-}
-
 plugin.tx_jhphotoswipe {
 	settings {
 		width = {$styles.content.imgtext.linkWrap.width}
@@ -53,6 +32,15 @@ plugin.tx_jhphotoswipe {
 			galleryUID: {field:uid}
 		)
 		photoswipeOptions.stdWrap.insertData = 1
+
+		files {
+			photoswipeUiJs = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
+			photoswipeJs = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
+			openGalleryJs = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
+
+			photoswipeCss = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
+			photoswipeDefaultskin = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
+		}
 	}
 }
 page.footerData {
