@@ -26,6 +26,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 
@@ -67,7 +68,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
         ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), true, false, false);
 
         // Render image
-        $imageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\ImageService');
+        $imageService = $this->objectManager->get(ImageService::class);
         $image = $imageService->getImage('', $item, true);
         $processingInstructions = array(
             'width' => $width,
