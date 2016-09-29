@@ -2,10 +2,10 @@
     <div class="csc-textpic-imagewrap">
         <f:if condition="{0: previewOrient} == {0: 'center'}"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"></f:if>
         <div class="csc-textpic-image csc-textpic-last">
-            <f:if condition="{previewImageCaption}">
+            <f:if condition="{previewImage.description}">
                 <f:then>
                     <table>
-                        <caption class="csc-textpic-caption">{previewImageCaption}<br/><f:translate key="clickToOpenGallery" default="(Click image to open gallery)"/></caption>
+                        <caption class="csc-textpic-caption">{previewImage.description}<br/><f:translate key="clickToOpenGallery" default="(Click image to open gallery)"/></caption>
                         <tbody>
                         <tr>
                             <td>

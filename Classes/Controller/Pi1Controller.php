@@ -26,7 +26,6 @@ namespace Heilmann\JhPhotoswipe\Controller;
  ***************************************************************/
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\FileRepository;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -35,6 +34,22 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class Pi1Controller extends ActionController
 {
+
+    /**
+     * PageRepository
+     *
+     * @var \TYPO3\CMS\Frontend\Page\PageRepository
+     * @inject
+     */
+    protected $pageRepository = null;
+
+    /**
+     * File Repository
+     *
+     * @var \TYPO3\CMS\Core\Resource\FileRepository
+     * @inject
+     */
+    protected $fileRepository = null;
 
     /**
      * data
@@ -55,20 +70,21 @@ class Pi1Controller extends ActionController
 
         $this->cObj = $this->configurationManager->getContentObject();
         $this->data = $this->cObj->data;
+
+        // Get localized record
+        $localizedRecord = $this->pageRepository->getRecordOverlay('tt_content', $this->data, $GLOBALS['TSFE']->sys_language_uid, $GLOBALS['TSFE']->sys_language_mode);
+        if ($localizedRecord !== false && isset($localizedRecord['_LOCALIZED_UID']))
+            $this->data = $localizedRecord;
+
         $viewAssign['data'] = $this->data;
 
         // Get images and preview-image
-        /** @var FileRepository $fileRepository */
-        $fileRepository = $this->objectManager->get(FileRepository::class);
-        $fileObjects = $fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', $this->data['uid']);
+        $fileObjects = $this->fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']);
         $viewAssign['files'] = $fileObjects;
         if ($this->settings['flexform']['firstFilePreviewOnly'])
             unset($viewAssign['files'][0]);
 
-        /** @var FileReference $previewImage */
-        $previewImage = $fileObjects[0];
-        $viewAssign['previewImage'] = $previewImage;
-        $viewAssign['previewImageCaption'] = $previewImage->getProperty('description');
+        $viewAssign['previewImage'] = $fileObjects[0];
 
         // Get orientation of preview-image
         switch ($this->settings['flexform']['preview_orient']) {
@@ -97,12 +113,16 @@ class Pi1Controller extends ActionController
 
         $this->cObj = $this->configurationManager->getContentObject();
         $this->data = $this->cObj->data;
+
+        // Get localized record
+        $localizedRecord = $this->pageRepository->getRecordOverlay('tt_content', $this->data, $GLOBALS['TSFE']->sys_language_uid, $GLOBALS['TSFE']->sys_language_mode);
+        if ($localizedRecord !== false && isset($localizedRecord['_LOCALIZED_UID']))
+            $this->data = $localizedRecord;
+
         $viewAssign['data'] = $this->data;
 
         // Get images and preview-image
-        /** @var FileRepository $fileRepository */
-        $fileRepository = $this->objectManager->get(FileRepository::class);
-        $viewAssign['files'] = $fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', $this->data['uid']);
+        $viewAssign['files'] = $this->fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']);
 
         // Assign array to fluid-template
         $this->view->assignMultiple($viewAssign);
