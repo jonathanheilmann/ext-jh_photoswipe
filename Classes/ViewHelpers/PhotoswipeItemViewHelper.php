@@ -54,6 +54,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
      * @param boolean $renderMsrc
      * @param mixed $msrcWidth
      * @return string
+     * @throws Exception
      */
     public function render($item = null, $width = null, $maxWidth = null, $maxHeight = null, $renderMsrc = false, $msrcWidth = '256m')
     {

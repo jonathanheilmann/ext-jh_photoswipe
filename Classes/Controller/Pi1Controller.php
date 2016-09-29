@@ -24,6 +24,8 @@ namespace Heilmann\JhPhotoswipe\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Resource\FileReference;
+use TYPO3\CMS\Core\Resource\FileRepository;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -56,12 +58,14 @@ class Pi1Controller extends ActionController
         $viewAssign['data'] = $this->data;
 
         // Get images and preview-image
-        $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        /** @var FileRepository $fileRepository */
+        $fileRepository = $this->objectManager->get(FileRepository::class);
         $fileObjects = $fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', $this->data['uid']);
         $viewAssign['files'] = $fileObjects;
-        if ($this->settings['flexform']['firstFilePreviewOnly']) {
+        if ($this->settings['flexform']['firstFilePreviewOnly'])
             unset($viewAssign['files'][0]);
-        }
+
+        /** @var FileReference $previewImage */
         $previewImage = $fileObjects[0];
         $viewAssign['previewImage'] = $previewImage;
         $viewAssign['previewImageCaption'] = $previewImage->getProperty('description');
@@ -78,6 +82,27 @@ class Pi1Controller extends ActionController
             default:
                 $viewAssign['previewOrient'] = 'center';
         }
+
+        // Assign array to fluid-template
+        $this->view->assignMultiple($viewAssign);
+    }
+
+    /**
+     *
+     */
+    public function multiThumbnailAction()
+    {
+        // Assign multiple values
+        $viewAssign = array();
+
+        $this->cObj = $this->configurationManager->getContentObject();
+        $this->data = $this->cObj->data;
+        $viewAssign['data'] = $this->data;
+
+        // Get images and preview-image
+        /** @var FileRepository $fileRepository */
+        $fileRepository = $this->objectManager->get(FileRepository::class);
+        $viewAssign['files'] = $fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', $this->data['uid']);
 
         // Assign array to fluid-template
         $this->view->assignMultiple($viewAssign);

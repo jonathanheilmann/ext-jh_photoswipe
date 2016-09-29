@@ -8,7 +8,7 @@ if (!defined('TYPO3_MODE')) {
     'Heilmann.' . $_EXTKEY,
     'Pi1',
     array(
-        'Pi1' => 'show',
+        'Pi1' => 'show, multiThumbnail',
 
     ),
     // non-cacheable actions

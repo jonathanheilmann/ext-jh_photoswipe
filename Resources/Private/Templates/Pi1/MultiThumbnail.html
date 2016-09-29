@@ -1,0 +1,50 @@
+{namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:if condition="{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent')}">
+        <f:then>
+            <f:render partial="MultiThumbnail/{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent')}" arguments="{_all}" />
+        </f:then>
+        <f:else>
+            <f:render partial="MultiThumbnail/Custom.html" arguments="{_all}" />
+        </f:else>
+    </f:if>
+
+    <jh:pageRenderer.addJsInlineCode name="tx_jhphotoswipe100_{data.uid}" addToFooter="true">
+        var openPhotoSwipe{data.uid} = function(index) {
+            var pswpElement = document.querySelectorAll('.pswp')[0];
+
+            var items = [
+            <f:for each="{files}" as="file" iteration="index">
+                <jh:photoswipeItem item="{file}" width="{settings.width}" renderMsrc="{settings.renderMsrc}" msrcWidth="{settings.msrcWidth}" />,
+            </f:for>
+            ];
+
+            // define options
+            var options = {
+                <f:cObject typoscriptObjectPath="plugin.tx_jhphotoswipe.settings.photoswipeOptions" data="{data}"/>
+            };
+            options.index = parseInt(index, 10);
+
+            var gallery{data.uid} = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery{data.uid}.init();
+        };
+
+        var onThumbnailsClick{data.uid} = function(e) {
+            e = e || window.event;
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+            var eTarget = e.target || e.srcElement;
+
+            openPhotoSwipe{data.uid}(eTarget.getAttribute('data-pswp-uid'));
+        }
+
+        var galleryElements = document.querySelectorAll('.jh-photoswipe-gallery-{data.uid}');
+        for(var i = 0, l = galleryElements.length; i < l; i++) {
+            galleryElements[i].setAttribute('data-pswp-uid', i);
+            galleryElements[i].onclick = onThumbnailsClick{data.uid};
+        }
+    </jh:pageRenderer.addJsInlineCode>
+</f:section>
