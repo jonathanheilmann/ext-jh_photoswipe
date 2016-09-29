@@ -110,6 +110,9 @@ You are welcome to report issues and suggest enhancements/features, too.
 
 ##ChangeLog
 
+###0.1.0
+- [ENHANCEMENT] #15 Move JavaScript to footer
+
 ###0.0.3
 
 - [TASK] #12 Use templateRootPaths
