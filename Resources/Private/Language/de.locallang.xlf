@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-03-22T08:23:30Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-09-29T16:22:45Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="clickToOpenGallery" approved="yes" xml:space="preserve">
+		<trans-unit id="clickToOpenGallery" approved="yes">
 			<source>(Click image to open gallery)</source>
 			<target>(Bild anklicken um Galerie zu öffnen)</target>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions" approved="yes" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions" approved="yes">
 			<source>Settings</source>
 			<target>Einstellungen</target>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.files" approved="yes" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.files" approved="yes">
 			<source>Files</source>
 			<target>Dateien</target>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly" approved="yes" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly" approved="yes">
 			<source>First file is preview only</source>
 			<target>Erste Datei ist nur Vorschau</target>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.preview_height" approved="yes" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.mode" approved="yes">
+			<source>Mode</source>
+			<target>Modus</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.mode.multithumbnail" approved="yes">
+			<source>Multi thumbnail</source>
+			<target>Galerie-Miniaturansicht</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.mode.singlethumbnail" approved="yes">
+			<source>Single thumbnail</source>
+			<target>Einzelne Miniaturansicht</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_columns" approved="yes">
+			<source>Columns</source>
+			<target>Spalten</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_height" approved="yes">
 			<source>Max height of preview</source>
 			<target>Maximale Höhe der Vorschau</target>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.preview_width" approved="yes" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.preview_width" approved="yes">
 			<source>Max width of preview</source>
 			<target>Maximale Breite der Vorschau</target>
 		</trans-unit>
