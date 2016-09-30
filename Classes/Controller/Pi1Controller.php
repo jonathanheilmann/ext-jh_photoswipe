@@ -98,6 +98,9 @@ class Pi1Controller extends ActionController
                 $viewAssign['previewOrient'] = 'center';
         }
 
+        // Signal to modify $viewAssign
+        $this->signalSlotDispatcher->dispatch(__CLASS__, 'afterShowAction', array(&$viewAssign, $this));
+
         // Assign array to fluid-template
         $this->view->assignMultiple($viewAssign);
     }
@@ -143,7 +146,8 @@ class Pi1Controller extends ActionController
             $viewAssign['data'] = $this->data;
         }
 
-        // todo: Signal to modify $viewAssign
+        // Signal to modify $viewAssign
+        $this->signalSlotDispatcher->dispatch(__CLASS__, 'afterMultiThumbnailAction', array(&$viewAssign, $this));
 
         // Assign array to fluid-template
         $this->view->assignMultiple($viewAssign);
