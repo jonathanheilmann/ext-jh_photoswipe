@@ -51,11 +51,11 @@
 		</trans-unit>
 		<trans-unit id="pi1_flexform.sheetOptions.mode.multithumbnail" approved="yes">
 			<source>Multi thumbnail</source>
-			<target>Galerie-Miniaturansicht</target>
+			<target>Galerie-Vorschau</target>
 		</trans-unit>
 		<trans-unit id="pi1_flexform.sheetOptions.mode.singlethumbnail" approved="yes">
 			<source>Single thumbnail</source>
-			<target>Einzelne Miniaturansicht</target>
+			<target>Einzel-Vorschau</target>
 		</trans-unit>
 		<trans-unit id="pi1_flexform.sheetOptions.preview_columns" approved="yes">
 			<source>Columns</source>

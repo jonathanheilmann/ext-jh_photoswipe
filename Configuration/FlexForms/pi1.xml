@@ -214,16 +214,16 @@
 								<type>select</type>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">left</numIndex>
-										<numIndex index="1">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.left</numIndex>
+                                        <numIndex index="0">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.left</numIndex>
+										<numIndex index="1">left</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">center</numIndex>
-										<numIndex index="1">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.center</numIndex>
+										<numIndex index="0">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.center</numIndex>
+                                        <numIndex index="1">center</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">Right</numIndex>
-										<numIndex index="1">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.right</numIndex>
+										<numIndex index="0">LLL:EXT:jh_photoswipe/Resources/Private/Language/locallang.xlf:pi1_flexform.sheetOptions.imagecaption_position.right</numIndex>
+                                        <numIndex index="1">Right</numIndex>
 									</numIndex>
 								</items>
 								<default>left</default>
