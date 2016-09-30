@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '0.1.0-dev',
+  'version' => '0.1.0-rc.0',
   'constraints' => 
   array (
     'depends' => 
@@ -34,7 +34,7 @@ $EM_CONF[$_EXTKEY] = array (
     array (
     ),
   ),
-  'clearcacheonload' => false,
+  'clearcacheonload' => true,
   'author_company' => NULL,
 );
 
