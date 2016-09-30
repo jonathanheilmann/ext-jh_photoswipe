@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.1.0-rc.0
+0.1.0-rc.1
 
 **Language:**
 en
