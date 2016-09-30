@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.1.0-rc.1
+0.1.0
 
 **Language:**
 en
@@ -92,8 +92,9 @@ Add a PhotoSwipe content element to your site:
 
 1. Create a new content element of type "plugin"
 2. Select plugin "PhotoSwipe"
-3. Add image(s) and configure gallery
-4. Save
+3. Select mode "Single thumbnail" or "Multi thumbnail"
+4. Add image(s) and configure gallery
+5. Save
 
 **Note**
 
