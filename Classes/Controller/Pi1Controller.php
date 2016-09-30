@@ -24,8 +24,7 @@ namespace Heilmann\JhPhotoswipe\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -104,7 +103,9 @@ class Pi1Controller extends ActionController
     }
 
     /**
+     * multi thumbnail action
      *
+     * @return void
      */
     public function multiThumbnailAction()
     {
@@ -123,6 +124,26 @@ class Pi1Controller extends ActionController
 
         // Get images and preview-image
         $viewAssign['files'] = $this->fileRepository->findByRelation('tt_content', 'tx_jhphotoswipe_pi1', isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']);
+
+        // CssStyledContent modifications
+        if (ExtensionManagementUtility::isLoaded('css_styled_content'))
+        {
+            $imgList = array();
+            foreach ($viewAssign['files'] as $file)
+                $imgList[] = $file->getUid();
+
+            $this->data['image'] = implode(',', $imgList);
+            $this->data['imagewidth'] = $this->settings['flexform']['preview_width'];
+            $this->data['imageheight'] = $this->settings['flexform']['preview_height'];
+            $this->data['imagecols'] = $this->settings['flexform']['preview_columns'];
+            $this->data['imageorient'] = $this->settings['flexform']['preview_orient'];
+            $this->data['image_noRows'] = $this->settings['flexform']['image_noRows'];
+            $this->data['imageborder'] = $this->settings['flexform']['imageborder'];
+            $this->data['imagecaption_position'] = $this->settings['flexform']['imagecaption_position'];
+            $viewAssign['data'] = $this->data;
+        }
+
+        // todo: Signal to modify $viewAssign
 
         // Assign array to fluid-template
         $this->view->assignMultiple($viewAssign);

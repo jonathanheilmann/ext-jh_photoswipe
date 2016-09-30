@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-09-29T16:22:45Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-09-30T15:46:49Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -20,6 +20,30 @@
 		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly" approved="yes">
 			<source>First file is preview only</source>
 			<target>Erste Datei ist nur Vorschau</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.image_noRows" approved="yes">
+			<source>No rows</source>
+			<target>Keine Reihen</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imageborder" approved="yes">
+			<source>Imageborder</source>
+			<target>Bilderrahmen</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position" approved="yes">
+			<source>Position if imagecaption</source>
+			<target>Position der Bildbeschriftung</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.center" approved="yes">
+			<source>Center</source>
+			<target>Mitte</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.left" approved="yes">
+			<source>Left</source>
+			<target>Links</target>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.right" approved="yes">
+			<source>Right</source>
+			<target>Rechts</target>
 		</trans-unit>
 		<trans-unit id="pi1_flexform.sheetOptions.mode" approved="yes">
 			<source>Mode</source>
