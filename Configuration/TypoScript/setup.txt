@@ -9,7 +9,7 @@ plugin.tx_jhphotoswipe {
             1 = {$plugin.tx_jhphotoswipe.view.partialRootPath}
         }
 		layoutRootPaths {
-            0 =  EXT:jh_photoswipe/Resources/Private/Layouts/
+            0 = EXT:jh_photoswipe/Resources/Private/Layouts/
             1 = {$plugin.tx_jhphotoswipe.view.layoutRootPath}
         }
 	}

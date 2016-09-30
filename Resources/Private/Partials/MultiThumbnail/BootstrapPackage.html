@@ -1,6 +1,6 @@
 {namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
 
-<div class="image-{previewOrient} image-above" id="jh-photoswipe-gallery-{data.uid}">
+<div class="image-center image-above" id="jh-photoswipe-gallery-{data.uid}">
     <div class="image-wrap">
         <f:alias map="{columnwidth: '{jh:math.division(dividend: \'12\', divisor: settings.flexform.preview_columns)}'}">
             <f:for each="{files}" as="file" iteration="iterator">
