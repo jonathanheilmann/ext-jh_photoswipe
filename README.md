@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.0.3
+0.1.0-rc.0
 
 **Language:**
 en
@@ -99,6 +99,7 @@ Add a PhotoSwipe content element to your site:
 
 In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
 A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
+
 Not respected gallery configurations:
 
 - Position (preview_orient)
@@ -151,7 +152,7 @@ You are welcome to report issues and suggest enhancements/features, too.
 The structure of the whole template has been changed to reach better flexibility and minimize breaking changes in later versions.
 Please review the files in Resources/Private/.
 
-Version 0.1.0 supports the frontend theme extensions "bootstap_package" and "css_styled_content"
+Version 0.1.0 supports the frontend theme extensions "bootstap_package" and "css_styled_content".
 To offer a way to use custom frontend theme extensions, a fallback to partial "Custom.html" is used. The default custom templates displays a warning.
 To solve this, override the partials path in ConstantEditor and add file "Show/Custom.html" for single-thumbnail mode and/or file "MultiThumbnail/Custom.html" for multi-thumbnail mode.
 
