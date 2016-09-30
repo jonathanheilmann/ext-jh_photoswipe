@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-30T15:46:49Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="plugins.jhPhotoswipe.title">
+			<source>PhotoSwipe</source>
+			<target>PhotoSwipe</target>
+		</trans-unit>
+		<trans-unit id="plugins.jhPhotoswipe.description">
+			<source>Create a PhotoSwipe gallery with single- or multi-thumbnail preview.</source>
+			<target>Erstellt eine PhotoSwipe Galerie mit einer Einzel- oder Galerie-Vorschau.</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

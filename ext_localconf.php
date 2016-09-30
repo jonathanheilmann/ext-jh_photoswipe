@@ -2,7 +2,6 @@
 if (!defined('TYPO3_MODE'))
     die('Access denied.');
 
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Heilmann.' . $_EXTKEY,
     'Pi1',
@@ -13,4 +12,23 @@ if (!defined('TYPO3_MODE'))
     // non-cacheable actions
     array(
     )
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    'mod {
+     wizards.newContentElement.wizardItems.plugins {
+       elements {
+         jhPhotoswipe {
+           icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/ceWizard.png
+           title = LLL:EXT:jh_photoswipe/Resources/Private/Language/newContentElement.xlf:plugins.jhPhotoswipe.title
+           description = LLL:EXT:jh_photoswipe/Resources/Private/Language/newContentElement.xlf:plugins.jhPhotoswipe.description
+           tt_content_defValues {
+             CType = list
+             list_type = jhphotoswipe_pi1	
+           }
+         }
+       }
+       show = *
+     }
+   }'
 );
