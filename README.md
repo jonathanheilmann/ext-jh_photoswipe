@@ -96,7 +96,9 @@ Add a PhotoSwipe content element to your site:
 4. Save
 
 **Note**
+
 In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
+A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
 Not respected gallery configurations:
 
 - Position (preview_orient)
