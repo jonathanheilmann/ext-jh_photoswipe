@@ -17,7 +17,7 @@
 
                     <div class="image-column col-md-{columnwidth} col-sm-{columnwidth} col-xs-{columnwidth}">
                         <figure class="image">
-                            <f:image image="{file}" maxWidth="{settings.width}" id="jh-photoswipe-item-{iterator.index}" class="cursor-pointer jh-photoswipe-item jh-photoswipe-gallery-{data.uid}" />
+                            <f:image image="{file}" maxHeight="{settings.flexform.preview_height}" maxWidth="{settings.flexform.preview_width}" id="jh-photoswipe-item-{iterator.index}" class="cursor-pointer jh-photoswipe-item jh-photoswipe-gallery-{data.uid}" />
                             <f:if condition="{file.description}">
                                 <figcaption class="caption">{file.description}</figcaption>
                             </f:if>

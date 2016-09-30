@@ -103,8 +103,6 @@ A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/e
 Not respected gallery configurations:
 
 - Position (preview_orient)
-- Max width of preview (preview_width)
-- Max height of preview (preview_height)
 - No rows (image_noRows)
 - Imageborder (imageborder)
 - Position if imagecaption (imagecaption_position) (See next section for solution)
