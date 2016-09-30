@@ -95,8 +95,16 @@ Add a PhotoSwipe content element to your site:
 3. Add image(s) and configure gallery
 4. Save
 
-| In multi-thumbnail mode, not all gallery configurations are respected within the shipped bootstrap_package template.
-| 
+**Note**
+In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
+Not respected gallery configurations:
+
+- Position (preview_orient)
+- Max width of preview (preview_width)
+- Max height of preview (preview_height)
+- No rows (image_noRows)
+- Imageborder (imageborder)
+- Position if imagecaption (imagecaption_position) (See next section for solution)
 
 ##How-to
 
@@ -138,17 +146,17 @@ You are welcome to report issues and suggest enhancements/features, too.
 ###0.1.0
 **Template**
 
-| The structure of the whole template has been changed to reach better flexibility and minimize breaking changes in later versions.
-| Please review the files in Resources/Private/.
+The structure of the whole template has been changed to reach better flexibility and minimize breaking changes in later versions.
+Please review the files in Resources/Private/.
 
-| Version 0.1.0 supports the frontend theme extensions "bootstap_package" and "css_styled_content"
-| To offer a way to use custom frontend theme extensions, a fallback to partial "Custom.html" is used. The default custom templates displays a warning.
-| To solve this, override the partials path in ConstantEditor and add file "Show/Custom.html" for single-thumbnail mode and/or file "MultiThumbnail/Custom.html" for multi-thumbnail mode.
+Version 0.1.0 supports the frontend theme extensions "bootstap_package" and "css_styled_content"
+To offer a way to use custom frontend theme extensions, a fallback to partial "Custom.html" is used. The default custom templates displays a warning.
+To solve this, override the partials path in ConstantEditor and add file "Show/Custom.html" for single-thumbnail mode and/or file "MultiThumbnail/Custom.html" for multi-thumbnail mode.
 
 **Resources**
 
-| Before version 0.1.0, all Javascript and CSS files has been included to every page.
-| Since version 0.1.0, resources are included on pages where required. This should enhance performance of your website.
+Before version 0.1.0, all Javascript and CSS files has been included to every page.
+Since version 0.1.0, resources are included on pages where required. This should enhance performance of your website.
 
 
 ##ChangeLog
