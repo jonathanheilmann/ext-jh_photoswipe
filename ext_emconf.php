@@ -16,11 +16,11 @@ $EM_CONF[$_EXTKEY] = array (
   'category' => 'plugin',
   'author' => 'Jonathan Heilmann',
   'author_email' => 'mail@jonathan-heilmann.de',
-  'state' => 'alpha',
+  'state' => 'beta',
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '0.1.0-rc.1',
+  'version' => '0.1.0',
   'constraints' => 
   array (
     'depends' => 
