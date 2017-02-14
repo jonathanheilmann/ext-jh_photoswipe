@@ -5,7 +5,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\CssStyledContent;
  *
  *  Copyright notice
  *
- *  (c) 2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2016-2017 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *

@@ -16,7 +16,7 @@ Adds the wonderful PhotoSwipe [photoswipe.com](http://photoswipe.com/) JavaScrip
 gallery,photoswipe,lightbox
 
 **Copyright:**
-2014-2016
+2014-2017 
 
 **Author:**
 Jonathan Heilmann
@@ -172,6 +172,7 @@ Since version 0.1.0, resources are included on pages where required. This should
 - [ENHANCEMENT] #20 Add CE Wizard
 - [ENHANCEMENT] #22 Add signals in controller
 - [BUGFIX] #21 Fatal error in TYPO3 CMS 6.2
+- [TASK] #25 Update Copyright to year 2017
 
 ###0.0.3
 
