@@ -1,0 +1,22 @@
+{namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
+
+<div class="tx-jhphotoswipe">
+    <f:if condition="{settings.files.photoswipeCss}">
+        <jh:pageRenderer.addCssFile file="{settings.files.photoswipeCss}" />
+    </f:if>
+    <f:if condition="{settings.files.photoswipeDefaultskin}">
+        <jh:pageRenderer.addCssFile file="{settings.files.photoswipeDefaultskin}" />
+    </f:if>
+
+    <f:if condition="{settings.files.photoswipeJs}">
+        <jh:pageRenderer.addJsFile file="{settings.files.photoswipeJs}" addToFooter="true" />
+    </f:if>
+    <f:if condition="{settings.files.photoswipeJs}">
+        <jh:pageRenderer.addJsFile file="{settings.files.photoswipeUiJs}" addToFooter="true" />
+    </f:if>
+    <f:if condition="{settings.files.openGalleryJs}">
+        <jh:pageRenderer.addJsFile file="{settings.files.openGalleryJs}" addToFooter="true" />
+    </f:if>
+
+    <f:render section="main" />
+</div>

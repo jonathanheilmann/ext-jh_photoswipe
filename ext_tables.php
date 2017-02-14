@@ -1,10 +1,8 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3_MODE'))
     die('Access denied.');
-}
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'PhotoSwipe');
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,

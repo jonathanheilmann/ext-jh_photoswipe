@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.0.3
+0.1.0
 
 **Language:**
 en
@@ -16,7 +16,7 @@ Adds the wonderful PhotoSwipe [photoswipe.com](http://photoswipe.com/) JavaScrip
 gallery,photoswipe,lightbox
 
 **Copyright:**
-2014-2016
+2014-2017 
 
 **Author:**
 Jonathan Heilmann
@@ -50,6 +50,7 @@ older or modified version of PhotoSwipe, please use the Constant Editor to overr
 
 Further settings applied in TypoScript setup:
 
+```
     plugin.tx_jhphotoswipe {
         settings {
             width = {$styles.content.imgtext.linkWrap.width}
@@ -60,9 +61,17 @@ Further settings applied in TypoScript setup:
                 galleryUID: {field:uid}
             )
             photoswipeOptions.stdWrap.insertData = 1
+    
+            files {
+                photoswipeUiJs = {$plugin.tx_jhphotoswipe.includePhotoswipeUiJs}
+                photoswipeJs = {$plugin.tx_jhphotoswipe.includePhotoswipeJs}
+                openGalleryJs = {$plugin.tx_jhphotoswipe.includeOpenGalleryJs}
+    
+                photoswipeCss = {$plugin.tx_jhphotoswipe.includePhotoswipeCss}
+                photoswipeDefaultskin = {$plugin.tx_jhphotoswipe.includePhotoswipeDefaultskin}
+            }
         }
     }
-    
     page.footerData {
         8410 = FLUIDTEMPLATE
         8410 {
@@ -75,6 +84,7 @@ Further settings applied in TypoScript setup:
             cursor: pointer;
         }
     )
+```
 
 ##User
 
@@ -82,15 +92,29 @@ Add a PhotoSwipe content element to your site:
 
 1. Create a new content element of type "plugin"
 2. Select plugin "PhotoSwipe"
-3. Add image(s) and configure gallery
-4. Save
+3. Select mode "Single thumbnail" or "Multi thumbnail"
+4. Add image(s) and configure gallery
+5. Save
+
+**Note**
+
+In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
+A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
+
+Not respected gallery configurations:
+
+- Position (preview_orient)
+- No rows (image_noRows)
+- Imageborder (imageborder)
+- Position if imagecaption (imagecaption_position) (See next section for solution)
 
 ##How-to
 
 ###Adapt caption position to bottom
 
 Add these lines to your template setup:
-    
+
+```
     plugin.tx_jhphotoswipe._CSS_DEFAULT_STYLE >
     plugin.tx_jhphotoswipe._CSS_DEFAULT_STYLE (
         caption {
@@ -101,6 +125,17 @@ Add these lines to your template setup:
         }
         
     )
+```
+
+##Developer
+
+###Signal Slots
+
+| Signal Class Name	| Signal Name | Located in Method | Passed arguments | Description |
+| --- | --- | ---- | --- | --- | --- |
+| Heilmann\JhPhotoswipe\Controller\Pi1Controller | afterShowAction | showAction() | &$viewAssign, $this | Slot is called before $viewAssign is assigned to view via $this->view->multiAssign() and thus the action is finished |
+| Heilmann\JhPhotoswipe\Controller\Pi1Controller | afterMultiThumbnailAction | multiThumbnailAction() | &$viewAssign, $this | Slot is called before $viewAssign is assigned to view via $this->view->multiAssign() and thus the action is finished |
+
 
 ##Known Problems
 
@@ -108,7 +143,36 @@ To check if there are known issues or planed features, please visit [github.com/
 
 You are welcome to report issues and suggest enhancements/features, too.
 
+## Breaking changes
+
+###0.1.0
+**Template**
+
+The structure of the whole template has been changed to reach better flexibility and minimize breaking changes in later versions.
+Please review the files in Resources/Private/.
+
+Version 0.1.0 supports the frontend theme extensions "bootstap_package" and "css_styled_content".
+To offer a way to use custom frontend theme extensions, a fallback to partial "Custom.html" is used. The default custom templates displays a warning.
+To solve this, override the partials path in ConstantEditor and add file "Show/Custom.html" for single-thumbnail mode and/or file "MultiThumbnail/Custom.html" for multi-thumbnail mode.
+
+**Resources**
+
+Before version 0.1.0, all Javascript and CSS files has been included to every page.
+Since version 0.1.0, resources are included on pages where required. This should enhance performance of your website.
+
+
 ##ChangeLog
+
+###0.1.0
+
+- [FEATURE] #16 Add multi-thumbnail mode
+- [ENHANCEMENT] #15 Move JavaScript to footer
+- [ENHANCEMENT] #17 Add multilingual support
+- [ENHANCEMENT] #18 Enhance loading if CSS and JavaScript
+- [ENHANCEMENT] #20 Add CE Wizard
+- [ENHANCEMENT] #22 Add signals in controller
+- [BUGFIX] #21 Fatal error in TYPO3 CMS 6.2
+- [TASK] #25 Update Copyright to year 2017
 
 ###0.0.3
 

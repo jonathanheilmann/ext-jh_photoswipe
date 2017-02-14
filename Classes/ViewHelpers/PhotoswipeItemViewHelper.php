@@ -4,7 +4,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2015-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2015-2017  Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
@@ -26,6 +26,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 
@@ -54,6 +55,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
      * @param boolean $renderMsrc
      * @param mixed $msrcWidth
      * @return string
+     * @throws Exception
      */
     public function render($item = null, $width = null, $maxWidth = null, $maxHeight = null, $renderMsrc = false, $msrcWidth = '256m')
     {
@@ -66,7 +68,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
         ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), true, false, false);
 
         // Render image
-        $imageService = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Service\\ImageService');
+        $imageService = $this->objectManager->get(ImageService::class);
         $image = $imageService->getImage('', $item, true);
         $processingInstructions = array(
             'width' => $width,

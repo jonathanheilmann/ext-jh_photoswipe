@@ -1,26 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-03-22T08:23:30Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-30T15:46:49Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="clickToOpenGallery" xml:space="preserve">
+		<trans-unit id="clickToOpenGallery">
 			<source>(Click image to open gallery)</source>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions">
 			<source>Settings</source>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.files" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.files">
 			<source>Files</source>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.firstFilePreviewOnly">
 			<source>First file is preview only</source>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.preview_height" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.image_noRows">
+			<source>No rows</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imageborder">
+			<source>Imageborder</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position">
+			<source>Position if imagecaption</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.center">
+			<source>Center</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.left">
+			<source>Left</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.imagecaption_position.right">
+			<source>Right</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.mode">
+			<source>Mode</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.mode.multithumbnail">
+			<source>Multi thumbnail</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.mode.singlethumbnail">
+			<source>Single thumbnail</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_columns">
+			<source>Columns</source>
+		</trans-unit>
+		<trans-unit id="pi1_flexform.sheetOptions.preview_height">
 			<source>Max height of preview</source>
 		</trans-unit>
-		<trans-unit id="pi1_flexform.sheetOptions.preview_width" xml:space="preserve">
+		<trans-unit id="pi1_flexform.sheetOptions.preview_width">
 			<source>Max width of preview</source>
 		</trans-unit>
 		</body>
