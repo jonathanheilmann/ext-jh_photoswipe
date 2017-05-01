@@ -92,7 +92,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
             $result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";
         }
         if (!empty($properties['description'])) {
-            $result .= ",\n title:'".$properties['description']."'";
+	    $result .= ",\n title:'" . trim(preg_replace('/\s+/', ' ', $properties['description'])) ."'";
         }
         //if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
         $result .= "\n}";
