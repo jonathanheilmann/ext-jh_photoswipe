@@ -92,7 +92,11 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
             $result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";
         }
         if (!empty($properties['description'])) {
-	    $result .= ",\n title:'" . trim(preg_replace('/\s+/', ' ', $properties['description'])) ."'";
+	    /** @var ContentObjectRenderer $contentObject */
+            $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+            $description = $contentObject->parseFunc(trim($properties['description']), [], '< lib.parseFunc_RTE');
+            $parsedDescription = preg_replace("/\r|\n/", "", $description);
+            $result .= ",\n title:'". str_replace("'", "\'", $parsedDescription)."'";
         }
         //if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
         $result .= "\n}";
