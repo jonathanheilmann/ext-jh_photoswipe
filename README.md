@@ -16,7 +16,7 @@ Adds the wonderful PhotoSwipe [photoswipe.com](http://photoswipe.com/) JavaScrip
 gallery,photoswipe,lightbox
 
 **Copyright:**
-2014-2017 
+2014-2018 
 
 **Author:**
 Jonathan Heilmann

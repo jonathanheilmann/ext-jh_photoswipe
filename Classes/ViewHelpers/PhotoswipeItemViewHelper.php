@@ -4,7 +4,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2015-2017  Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2015-2018  Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
