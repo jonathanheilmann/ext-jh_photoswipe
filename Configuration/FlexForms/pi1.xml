@@ -107,19 +107,19 @@
 								<type>select</type>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.0</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.0</numIndex>
 										<numIndex index="1">0</numIndex>
-										<numIndex index="2">selicons/above_center.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-center</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.1</numIndex>
 										<numIndex index="1">1</numIndex>
-										<numIndex index="2">selicons/above_right.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-right</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.2</numIndex>
 										<numIndex index="1">2</numIndex>
-										<numIndex index="2">selicons/above_left.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-left</numIndex>
 									</numIndex>
 								</items>
 								<selicon_cols>6</selicon_cols>
