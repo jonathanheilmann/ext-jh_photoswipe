@@ -16,7 +16,7 @@ Adds the wonderful PhotoSwipe [photoswipe.com](http://photoswipe.com/) JavaScrip
 gallery,photoswipe,lightbox
 
 **Copyright:**
-2014-2017 
+2014-2018 
 
 **Author:**
 Jonathan Heilmann
@@ -30,9 +30,9 @@ This document is published under the Open Publication License available from [op
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from www.typo3.org.
 
 
-##Administration
+## Administration
 
-###Installation
+### Installation
 
 1. Go to the Extension Manager
 2. Install the extension
@@ -40,7 +40,7 @@ The content of this document is related to TYPO3, a GNU/GPL CMS/Framework availa
 4. Configure extension if required (see section below)
 
 
-##Configuration
+## Configuration
 
 PhotoSwipe is configured by JavaScript inside a template. If you want to modify the default configuration, 
 please copy the template to another location and update the "Path to template root" in Constant Editor.
@@ -86,7 +86,7 @@ Further settings applied in TypoScript setup:
     )
 ```
 
-##User
+## User
 
 Add a PhotoSwipe content element to your site:
 
@@ -108,9 +108,9 @@ Not respected gallery configurations:
 - Imageborder (imageborder)
 - Position if imagecaption (imagecaption_position) (See next section for solution)
 
-##How-to
+## How-to
 
-###Adapt caption position to bottom
+### Adapt caption position to bottom
 
 Add these lines to your template setup:
 
@@ -127,9 +127,9 @@ Add these lines to your template setup:
     )
 ```
 
-##Developer
+## Developer
 
-###Signal Slots
+### Signal Slots
 
 | Signal Class Name	| Signal Name | Located in Method | Passed arguments | Description |
 | --- | --- | ---- | --- | --- | --- |
@@ -137,7 +137,7 @@ Add these lines to your template setup:
 | Heilmann\JhPhotoswipe\Controller\Pi1Controller | afterMultiThumbnailAction | multiThumbnailAction() | &$viewAssign, $this | Slot is called before $viewAssign is assigned to view via $this->view->multiAssign() and thus the action is finished |
 
 
-##Known Problems
+## Known Problems
 
 To check if there are known issues or planed features, please visit [github.com/jonathanheilmann/ext-jh_photoswipe/issues](https://github.com/jonathanheilmann/ext-jh_photoswipe/issues)
 
@@ -145,7 +145,7 @@ You are welcome to report issues and suggest enhancements/features, too.
 
 ## Breaking changes
 
-###0.1.0
+### 0.1.0
 **Template**
 
 The structure of the whole template has been changed to reach better flexibility and minimize breaking changes in later versions.
@@ -161,9 +161,17 @@ Before version 0.1.0, all Javascript and CSS files has been included to every pa
 Since version 0.1.0, resources are included on pages where required. This should enhance performance of your website.
 
 
-##ChangeLog
+## ChangeLog
 
-###0.1.0
+### 0.2.0
+- [ENHANCEMENT] #28 Remove new lines from title in PSItemViewHelper
+- [TASK] #29 Fix README.md headings
+- [TASK] #31 Add TYPO3 8 LTS support and drop TYPO3 6 LTS support
+- [TASK] #30 Add composer support
+- [TASK] Update copyright
+- [TASK] Add example TCA config
+
+### 0.1.0
 
 - [FEATURE] #16 Add multi-thumbnail mode
 - [ENHANCEMENT] #15 Move JavaScript to footer
@@ -174,7 +182,7 @@ Since version 0.1.0, resources are included on pages where required. This should
 - [BUGFIX] #21 Fatal error in TYPO3 CMS 6.2
 - [TASK] #25 Update Copyright to year 2017
 
-###0.0.3
+### 0.0.3
 
 - [TASK] #12 Use templateRootPaths
 - [TASK] #11 Remove ExtensionBuilder files
@@ -182,12 +190,12 @@ Since version 0.1.0, resources are included on pages where required. This should
 - [TASK] #8 Remove unused TCA fields
 - [ENHANCEMENT] #1 Add documentation
 
-###0.0.2
+### 0.0.2
 
 - [TASK] #3 TYPO3 CMS 7 LTS compatibility
 - [TASK] #4 Update copyright year to 2016
 - [TASK] #5 Implement PSR-2 standard
 
-###0.0.1
+### 0.0.1
 
 - Initial release of Extension

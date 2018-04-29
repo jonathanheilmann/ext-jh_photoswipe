@@ -4,7 +4,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2015-2017  Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2015-2018  Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
@@ -29,6 +29,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * Class PhotoswipeItemViewHelper
@@ -68,6 +69,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
         ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), true, false, false);
 
         // Render image
+        /** @var ImageService $imageService */
         $imageService = $this->objectManager->get(ImageService::class);
         $image = $imageService->getImage('', $item, true);
         $processingInstructions = array(
@@ -92,7 +94,11 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
             $result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";
         }
         if (!empty($properties['description'])) {
-            $result .= ",\n title:'".$properties['description']."'";
+            /** @var ContentObjectRenderer $contentObject */
+            $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+            $description = $contentObject->parseFunc(trim($properties['description']), [], '< lib.parseFunc_RTE');
+            $parsedDescription = preg_replace("/\r|\n/", "", $description);
+            $result .= ",\n title:'". str_replace("'", "\'", $parsedDescription)."'";
         }
         //if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
         $result .= "\n}";

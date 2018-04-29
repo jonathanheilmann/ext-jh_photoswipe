@@ -4,7 +4,7 @@ namespace Heilmann\JhPhotoswipe\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014-2017 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2014-2018 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
