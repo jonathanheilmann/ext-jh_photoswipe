@@ -163,6 +163,14 @@ Since version 0.1.0, resources are included on pages where required. This should
 
 ## ChangeLog
 
+### 0.2.0
+- [ENHANCEMENT] #28 Remove new lines from title in PSItemViewHelper
+- [TASK] #29 Fix README.md headings
+- [TASK] #31 Add TYPO3 8 LTS support and drop TYPO3 6 LTS support
+- [TASK] #30 Add composer support
+- [TASK] Update copyright
+- [TASK] Add example TCA config
+
 ### 0.1.0
 
 - [FEATURE] #16 Add multi-thumbnail mode
