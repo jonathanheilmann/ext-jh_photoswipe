@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.1.0
+0.2.1
 
 **Language:**
 en
@@ -99,7 +99,7 @@ Add a PhotoSwipe content element to your site:
 **Note**
 
 In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
-A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
+A solution is scheduled for version 0.3.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
 
 Not respected gallery configurations:
 
@@ -162,6 +162,9 @@ Since version 0.1.0, resources are included on pages where required. This should
 
 
 ## ChangeLog
+
+### 0.2.1
+- [BUG] #33 css_styled_content: Gallery shows code
 
 ### 0.2.0
 - [ENHANCEMENT] #28 Remove new lines from title in PSItemViewHelper
