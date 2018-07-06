@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.1.0
+0.2.1
 
 **Language:**
 en
@@ -99,7 +99,7 @@ Add a PhotoSwipe content element to your site:
 **Note**
 
 In multi-thumbnail mode, not all gallery configurations are respected within the shipped **bootstrap_package** template.
-A solution is scheduled for version 0.2.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
+A solution is scheduled for version 0.3.0 (https://github.com/jonathanheilmann/ext-jh_photoswipe/issues/24).
 
 Not respected gallery configurations:
 
