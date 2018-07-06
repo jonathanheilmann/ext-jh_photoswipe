@@ -163,6 +163,9 @@ Since version 0.1.0, resources are included on pages where required. This should
 
 ## ChangeLog
 
+### 0.2.1
+- [BUG] #33 css_styled_content: Gallery shows code
+
 ### 0.2.0
 - [ENHANCEMENT] #28 Remove new lines from title in PSItemViewHelper
 - [TASK] #29 Fix README.md headings
