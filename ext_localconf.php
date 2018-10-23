@@ -19,7 +19,7 @@ if (!defined('TYPO3_MODE'))
      wizards.newContentElement.wizardItems.plugins {
        elements {
          jhPhotoswipe {
-           icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/ceWizard.png
+           iconIdentifier = jh-photoswipe-contentelement
            title = LLL:EXT:jh_photoswipe/Resources/Private/Language/newContentElement.xlf:plugins.jhPhotoswipe.title
            description = LLL:EXT:jh_photoswipe/Resources/Private/Language/newContentElement.xlf:plugins.jhPhotoswipe.description
            tt_content_defValues {

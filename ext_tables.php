@@ -24,3 +24,8 @@ $GLOBALS['TCA']['sys_file_reference']['palettes']['jhPhotoswipePalette'] = array
     'showitem' => 'title, author;;;;3-3-3,--linebreak--, description',
     'canNotCollapse' => true
 );
+
+/** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$iconRegistry->registerIcon('jh-photoswipe-contentelement', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+    ['source' => 'EXT:'.$_EXTKEY.'/Resources/Public/Icons/' . 'ceWizard.svg']);
