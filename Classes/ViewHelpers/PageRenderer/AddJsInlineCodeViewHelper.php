@@ -30,7 +30,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  * Class AddJsInlineCodeViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddJsInlineCodeViewHelper extends AbstractViewHelper
+class AddJsInlineCodeViewHelper extends AbstractPageRenderViewHelper
 {
 
     public function initializeArguments()
@@ -42,19 +42,15 @@ class AddJsInlineCodeViewHelper extends AbstractViewHelper
         $this->registerArgument('addToFooter', 'boolean', 'Add to footer?', false, false);
     }
 
-    /**
-     * Add JS file inline using Pagerenderer
-     */
     public function render()
     {
-        if ($arguments['block'] === null) $arguments['block'] = $this->renderChildren();
+        if ($this->arguments['block'] === null) $this->arguments['block'] = $this->renderChildren();
 
-        if ($arguments['addToFooter'] === false)
-        {
-            $this->pageRenderer->addJsInlineCode($arguments['name'], $arguments['block'], $arguments['compress'], $arguments['forceOnTop']);
-        } else{
-            $this->pageRenderer->addJsFooterInlineCode($arguments['name'], $arguments['block'], $arguments['compress'], $arguments['forceOnTop']);
+        if ($this->arguments['addToFooter'] === false) {
+            $this->pageRenderer->addJsInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
+        } else {
+            $this->pageRenderer->addJsFooterInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
         }
+        return '';
     }
-
 }

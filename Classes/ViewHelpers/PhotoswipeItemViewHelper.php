@@ -24,10 +24,12 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Service\ImageService;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
@@ -35,7 +37,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  * Class PhotoswipeItemViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers
  */
-class PhotoswipeItemViewHelper extends AbstractViewHelper
+class PhotoswipeItemViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**
@@ -44,44 +46,50 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
     public function initializeArguments()
     {
         parent::initializeArguments();
+
+        $this->registerArgument('item', 'object', 'A File object', true, null);
+        $this->registerArgument('width', 'string', 'The JS content', false, null);
+        $this->registerArgument('renderMsrc', 'string', 'Add to footer?', false, false);
+        $this->registerArgument('msrcWidth', 'string', 'Add to footer?', false, '256m');
     }
 
     /**
      * Render method
      *
-     * @param mixed $item PhotoSwipe item
-     * @param mixed $width
-     * @param int $maxWidth
-     * @param int $maxHeight
-     * @param boolean $renderMsrc
-     * @param mixed $msrcWidth
      * @return string
      * @throws Exception
      */
-    public function render($item = null, $width = null, $maxWidth = null, $maxHeight = null, $renderMsrc = false, $msrcWidth = '256m')
+    public function render()
     {
+        $args = $this->arguments;
+
+        /** @var FileReference $item */
+        $item = $args['item'];
+
+
         if (is_null($item)) {
-            throw new Exception('You must either specify a string src or a File object.', 1382284106);
+            throw new Exception('You must specify a File object.', 1382284106);
         }
 
         // Get FAL properties
         $properties = $item->getOriginalFile()->getProperties();
         ArrayUtility::mergeRecursiveWithOverrule($properties, $item->getReferenceProperties(), true, false, false);
 
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
         // Render image
         /** @var ImageService $imageService */
-        $imageService = $this->objectManager->get(ImageService::class);
+        $imageService = $objectManager->get(ImageService::class);
         $image = $imageService->getImage('', $item, true);
         $processingInstructions = array(
-            'width' => $width,
-            /*'maxWidth' => $maxWidth,
-            'maxHeight' => $maxHeight,*/
+            'width' => $args['width'],
         );
         $processedImage = $imageService->applyProcessingInstructions($image, $processingInstructions);
 
         // Render medium image
         $processingInstructions = array(
-            'width' => $msrcWidth,
+            'width' => $args['msrcWidth'],
         );
         $processedMsrc = $imageService->applyProcessingInstructions($image, $processingInstructions);
 
@@ -90,7 +98,7 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
 			src: '".$imageService->getImageUri($processedImage)."',\n
 			w: ".$processedImage->getProperty('width').",\n
 			h: ".$processedImage->getProperty('height');
-        if ($renderMsrc === true) {
+        if ($args['renderMsrc'] === true) {
             $result .= ",\n msrc:'".$imageService->getImageUri($processedMsrc)."'";
         }
         if (!empty($properties['description'])) {
@@ -100,7 +108,6 @@ class PhotoswipeItemViewHelper extends AbstractViewHelper
             $parsedDescription = preg_replace("/\r|\n/", "", $description);
             $result .= ",\n title:'". str_replace("'", "\'", $parsedDescription)."'";
         }
-        //if (!empty($properties['author'])) {$result .= ",\n author'".$properties['author']."'";}
         $result .= "\n}";
 
         return $result;
