@@ -25,13 +25,12 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Math;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class DivisionViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\Math
  */
-class AdditionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AdditionViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**

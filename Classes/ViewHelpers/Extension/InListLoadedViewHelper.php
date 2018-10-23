@@ -27,13 +27,12 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Extension;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Class InListLoadedViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\Extension
  */
-class InListLoadedViewHelper extends AbstractViewHelper
+class InListLoadedViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**

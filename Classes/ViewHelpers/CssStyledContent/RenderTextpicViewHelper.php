@@ -27,14 +27,13 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\CssStyledContent;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\CssStyledContent\Controller\CssStyledContentController;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * Class RenderTextpicViewHelperViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\CssStyledContent
  */
-class RenderTextpicViewHelper extends AbstractViewHelper
+class RenderTextpicViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**
