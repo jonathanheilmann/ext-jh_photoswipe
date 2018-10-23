@@ -25,13 +25,12 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
  * Class AddJsInlineCodeViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddJsInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsInlineCodeViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -45,13 +44,11 @@ class AddJsInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstrac
     {
         if ($block === null) $block = $this->renderChildren();
 
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
         if ($addToFooter === false)
         {
-            $pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
+            $this->pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
         } else{
-            $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
+            $this->pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
         }
     }
 

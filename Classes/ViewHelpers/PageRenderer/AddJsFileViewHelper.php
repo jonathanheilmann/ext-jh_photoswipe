@@ -26,13 +26,11 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-
 /**
  * Class AddJsFileViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddJsFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsFileViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -62,12 +60,10 @@ class AddJsFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewH
         $addToFooter = false)
     {
         $file = $GLOBALS['TSFE']->tmpl->getFileName($file);
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
         if ($addToFooter === false)
-            $pageRenderer->addJsFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
+            $this->pageRenderer->addJsFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
         else
-            $pageRenderer->addJsFooterFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
+            $this->pageRenderer->addJsFooterFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
     }
 
 }

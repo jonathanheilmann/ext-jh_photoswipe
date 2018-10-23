@@ -26,13 +26,11 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-
 /**
  * Class AddCssFileViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddCssFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddCssFileViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -61,9 +59,7 @@ class AddCssFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
         $splitChar = '|')
     {
         $file = $GLOBALS['TSFE']->tmpl->getFileName($file);
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
-        $pageRenderer->addCssFile($file, $rel, $media, $title, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar);
+        $this->pageRenderer->addCssFile($file, $rel, $media, $title, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar);
     }
 
 }
