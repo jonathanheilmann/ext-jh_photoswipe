@@ -44,7 +44,7 @@ class AddJsInlineCodeViewHelper extends AbstractPageRenderViewHelper
 
     public function render()
     {
-        if ($this->arguments['block'] === null) $this->arguments['block'] = $this->renderChildren();
+        if ($this->arguments['block'] === null) $this->arguments['block'] = htmlspecialchars_decode($this->renderChildren(), ENT_QUOTES);
 
         if ($this->arguments['addToFooter'] === false) {
             $this->pageRenderer->addJsInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
