@@ -53,9 +53,17 @@ class AddCssFileViewHelper extends AbstractPageRenderViewHelper
     public function render()
     {
         $file = $GLOBALS['TSFE']->tmpl->getFileName($this->arguments['file']);
-        $this->pageRenderer->addCssFile($file, $this->arguments['rel'], $this->arguments['media'],
-            $this->arguments['title'], $this->arguments['compress'], $this->arguments['forceOnTop'],
-            $this->arguments['allWrap'], $this->arguments['excludeFromConcatenation'], $this->arguments['splitChar']);
+        $this->pageRenderer->addCssFile(
+            $file,
+            $this->arguments['rel'],
+            $this->arguments['media'],
+            $this->arguments['title'],
+            $this->arguments['compress'],
+            $this->arguments['forceOnTop'],
+            $this->arguments['allWrap'],
+            $this->arguments['excludeFromConcatenation'],
+            $this->arguments['splitChar']
+        );
     }
 
 }

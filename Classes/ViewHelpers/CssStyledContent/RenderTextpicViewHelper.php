@@ -27,6 +27,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\CssStyledContent;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\CssStyledContent\Controller\CssStyledContentController;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
@@ -35,6 +36,16 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class RenderTextpicViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+
+    /**
+     * @var ObjectManager
+     */
+    protected $objectManager = null;
+
+    public function initialize()
+    {
+        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+    }
 
     /**
      * Render method

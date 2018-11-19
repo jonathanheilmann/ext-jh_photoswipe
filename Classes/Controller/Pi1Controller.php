@@ -26,6 +26,7 @@ namespace Heilmann\JhPhotoswipe\Controller;
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\ContentContentObject;
 
 /**
  * Class Pi1Controller
@@ -35,12 +36,16 @@ class Pi1Controller extends ActionController
 {
 
     /**
-     * PageRepository
-     *
-     * @var \TYPO3\CMS\Frontend\Page\PageRepository
-     * @inject
+     * @var ContentContentObject
      */
-    protected $pageRepository = null;
+    protected $cObj = null;
+
+    /**
+     * data
+     *
+     * @var array
+     */
+    protected $data;
 
     /**
      * File Repository
@@ -51,16 +56,19 @@ class Pi1Controller extends ActionController
     protected $fileRepository = null;
 
     /**
-     * data
+     * PageRepository
      *
-     * @var array
+     * @var \TYPO3\CMS\Frontend\Page\PageRepository
+     * @inject
      */
-    protected $data;
+    protected $pageRepository = null;
 
     /**
      * action show
      *
      * @return void
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
     public function showAction()
     {
@@ -109,6 +117,8 @@ class Pi1Controller extends ActionController
      * multi thumbnail action
      *
      * @return void
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
     public function multiThumbnailAction()
     {
