@@ -33,17 +33,21 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Math;
 class DivisionViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
+    public function initializeArguments()
+    {
+        $this->registerArgument('dividend', 'integer', 'Dividend', true);
+        $this->registerArgument('divisor', 'integer', 'Divisor', true);
+    }
+
     /**
-     * @param int $dividend
-     * @param int $divisor
      * @return int
      */
-    public function render($dividend, $divisor)
+    public function render()
     {
-        if ($divisor === 0)
+        if ($this->arguments['divisor'] === 0)
             return 0;
 
-        return ($dividend / $divisor);
+        return ($this->arguments['dividend'] / $this->arguments['divisor']);
     }
 
 }

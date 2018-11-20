@@ -33,14 +33,18 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Math;
 class AdditionViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
+    public function initializeArguments()
+    {
+        $this->registerArgument('a', 'integer', 'a', true);
+        $this->registerArgument('b', 'integer', 'b', true);
+    }
+
     /**
-     * @param int $a
-     * @param int $b
      * @return int
      */
-    public function render($a, $b)
+    public function render()
     {
-        return ($a + $b);
+        return ($this->arguments['a'] + $this->arguments['b']);
     }
 
 }
