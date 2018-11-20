@@ -152,7 +152,7 @@ class Pi1Controller extends ActionController
             $this->data['imageorient'] = $this->settings['flexform']['preview_orient'];
             $this->data['image_noRows'] = $this->settings['flexform']['image_noRows'];
             $this->data['imageborder'] = $this->settings['flexform']['imageborder'];
-            $this->data['imagecaption_position'] = $this->settings['flexform']['imagecaption_position'];
+            $this->data['imagecaption_position'] = strtolower($this->settings['flexform']['imagecaption_position']);
             $viewAssign['data'] = $this->data;
         }
 

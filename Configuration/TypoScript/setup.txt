@@ -96,14 +96,17 @@ lib.tx_jhphotoswipe {
 					}
 					srcset {
 						element = <img src="###SRC###" srcset="###SOURCECOLLECTION###" class="cursor-pointer jh-photoswipe-item jh-photoswipe-gallery-{field:uid}"###PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###>
+						element.insertData = 1
 						source = |*|###SRC### ###SRCSETCANDIDATE###,|*|###SRC### ###SRCSETCANDIDATE###
 					}
 					picture {
 						element = <picture>###SOURCECOLLECTION###<img src="###SRC###" class="cursor-pointer jh-photoswipe-item jh-photoswipe-gallery-{field:uid}"###PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###></picture>
+						element.insertData = 1
 						source = <source srcset="###SRC###" media="###MEDIAQUERY###"###SELFCLOSINGTAGSLASH###>
 					}
 					data {
 						element = <img src="###SRC###" class="cursor-pointer jh-photoswipe-item jh-photoswipe-gallery-{field:uid}"###SOURCECOLLECTION######PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###>
+						element.insertData = 1
 						source = data-###DATAKEY###="###SRC###"
 						source.noTrimWrap = ; ;;
 						source.noTrimWrap.splitChar = ;
@@ -129,7 +132,7 @@ lib.tx_jhphotoswipe {
 						width = 200
 						pixelDensity = 2
 
-						srcsetCandidate = 600w 2x
+						srcsetCandidate = 1200w
 						mediaQuery = (max-device-width: 600px) AND (min-resolution: 192dpi)
 						dataKey = smallRetina
 					}
