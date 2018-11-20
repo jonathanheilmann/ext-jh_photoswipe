@@ -4,7 +4,7 @@
 jh_photoswipe
 
 **Version:**
-0.2.1
+0.3.0
 
 **Language:**
 en
@@ -162,6 +162,10 @@ Since version 0.1.0, resources are included on pages where required. This should
 
 
 ## ChangeLog
+
+### 0.3.0 (never released in TER)
+- [ENHANCEMENT] #38 Add TYPO3 9 LTS support
+- [ENHANCEMENT] #14 Support EXT:fluid_styled_content (partial)
 
 ### 0.2.1
 - [BUG] #33 css_styled_content: Gallery shows code
