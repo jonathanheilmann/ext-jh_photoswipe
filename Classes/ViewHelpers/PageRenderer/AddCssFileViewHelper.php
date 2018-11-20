@@ -26,44 +26,36 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-
 /**
  * Class AddCssFileViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddCssFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddCssFileViewHelper extends AbstractPageRenderViewHelper
 {
 
+    public function initializeArguments()
+    {
+        $this->registerArgument('file', 'string', 'The name of the file', true, null);
+        $this->registerArgument('rel', 'string', 'Rel', false, 'stylesheet');
+        $this->registerArgument('media', 'string', 'Media', false, 'all');
+        $this->registerArgument('title', 'string', 'Title', false, '');
+        $this->registerArgument('compress', 'boolean', 'Compress output?', false, true);
+        $this->registerArgument('forceOnTop', 'boolean', 'Force to top?', false, false);
+        $this->registerArgument('allWrap', 'string', 'Wrap', false, '');
+        $this->registerArgument('excludeFromConcatenation', 'boolean', 'Exclude from concatenation', false, false);
+        $this->registerArgument('splitChar', 'string', 'Split character', false, '|');
+    }
+
     /**
-     * @param string $file
-     * @param string $rel
-     * @param string $media
-     * @param string $title
-     * @param bool $compress
-     * @param bool $forceOnTop
-     * @param string $allWrap
-     * @param bool $excludeFromConcatenation
-     * @param string $splitChar
-     *
      * @see PageRenderer::addJsFile
      * @see PageRenderer::addJsFooterFile
      */
-    public function render(
-        $file,
-        $rel = 'stylesheet',
-        $media = 'all',
-        $title = '',
-        $compress = true,
-        $forceOnTop = false,
-        $allWrap = '',
-        $excludeFromConcatenation = false,
-        $splitChar = '|')
+    public function render()
     {
-        $file = $GLOBALS['TSFE']->tmpl->getFileName($file);
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
-        $pageRenderer->addCssFile($file, $rel, $media, $title, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar);
+        $file = $GLOBALS['TSFE']->tmpl->getFileName($this->arguments['file']);
+        $this->pageRenderer->addCssFile($file, $this->arguments['rel'], $this->arguments['media'],
+            $this->arguments['title'], $this->arguments['compress'], $this->arguments['forceOnTop'],
+            $this->arguments['allWrap'], $this->arguments['excludeFromConcatenation'], $this->arguments['splitChar']);
     }
 
 }

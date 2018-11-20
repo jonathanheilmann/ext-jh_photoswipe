@@ -3,9 +3,9 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <f:if condition="{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent')}">
+    <f:if condition="{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent,FluidStyledContent')}">
         <f:then>
-            <f:render partial="MultiThumbnail/{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent')}" arguments="{_all}" />
+            <f:render partial="MultiThumbnail/{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent,FluidStyledContent')}" arguments="{_all}" />
         </f:then>
         <f:else>
             <f:render partial="MultiThumbnail/Custom.html" arguments="{_all}" />

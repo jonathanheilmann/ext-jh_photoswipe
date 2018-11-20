@@ -30,7 +30,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Math;
  * Class ModuloViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\Math
  */
-class ModuloViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class ModuloViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**

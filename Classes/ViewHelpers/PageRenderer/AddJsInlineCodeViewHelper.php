@@ -25,34 +25,32 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
  * Class AddJsInlineCodeViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddJsInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsInlineCodeViewHelper extends AbstractPageRenderViewHelper
 {
 
-    /**
-     * @param string $name
-     * @param string|null $block
-     * @param bool $compress
-     * @param bool $forceOnTop
-     * @param bool $addToFooter
-     */
-    public function render($name, $block = null, $compress = true, $forceOnTop = false, $addToFooter = false)
+    public function initializeArguments()
     {
-        if ($block === null) $block = $this->renderChildren();
-
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
-        if ($addToFooter === false)
-        {
-            $pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
-        } else{
-            $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
-        }
+        $this->registerArgument('name', 'string', 'The name of the file', true, null);
+        $this->registerArgument('block', 'string', 'The JS content', false, null);
+        $this->registerArgument('compress', 'boolean', 'Compress output', false, false);
+        $this->registerArgument('forceOnTop', 'boolean', 'Force to top?', false, false);
+        $this->registerArgument('addToFooter', 'boolean', 'Add to footer?', false, false);
     }
 
+    public function render()
+    {
+        if ($this->arguments['block'] === null) $this->arguments['block'] = htmlspecialchars_decode($this->renderChildren(), ENT_QUOTES);
+
+        if ($this->arguments['addToFooter'] === false) {
+            $this->pageRenderer->addJsInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
+        } else {
+            $this->pageRenderer->addJsFooterInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
+        }
+        return '';
+    }
 }

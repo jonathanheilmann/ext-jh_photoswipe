@@ -26,48 +26,42 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-
 /**
  * Class AddJsFileViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\PageRenderer
  */
-class AddJsFileViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsFileViewHelper extends AbstractPageRenderViewHelper
 {
 
+    public function initializeArguments()
+    {
+        $this->registerArgument('file', 'string', 'The name of the file', true, null);
+        $this->registerArgument('type', 'string', 'Type', false, 'text/javascript');
+        $this->registerArgument('compress', 'boolean', 'Compress output?', false, true);
+        $this->registerArgument('forceOnTop', 'boolean', 'Force to top?', false, false);
+        $this->registerArgument('allWrap', 'string', 'Wrap', false, '');
+        $this->registerArgument('excludeFromConcatenation', 'boolean', 'Exclude from concatenation', false, false);
+        $this->registerArgument('splitChar', 'string', 'Split character', false, '|');
+        $this->registerArgument('async', 'boolean', 'Async', false, false);
+        $this->registerArgument('integrity', 'string', 'Integrity', false, '');
+        $this->registerArgument('addToFooter', 'string', 'Add to footer?', false, false);
+    }
+
     /**
-     * @param string $file
-     * @param string $type
-     * @param bool $compress
-     * @param bool $forceOnTop
-     * @param string $allWrap
-     * @param bool $excludeFromConcatenation
-     * @param string $splitChar
-     * @param bool $async
-     * @param string $integrity
-     * @param bool $addToFooter
-     *
      * @see PageRenderer::addJsFile
      * @see PageRenderer::addJsFooterFile
      */
-    public function render($file,
-        $type = 'text/javascript',
-        $compress = true,
-        $forceOnTop = false,
-        $allWrap = '',
-        $excludeFromConcatenation = false,
-        $splitChar = '|',
-        $async = false,
-        $integrity = '',
-        $addToFooter = false)
+    public function render()
     {
-        $file = $GLOBALS['TSFE']->tmpl->getFileName($file);
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
-        if ($addToFooter === false)
-            $pageRenderer->addJsFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
-        else
-            $pageRenderer->addJsFooterFile($file, $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation, $splitChar, $async, $integrity);
+        $file = $GLOBALS['TSFE']->tmpl->getFileName($this->arguments['file']);
+        if ($this->arguments['addToFooter'] === false) {
+            $this->pageRenderer->addJsFile($file, $this->arguments['type'], $this->arguments['compress'],
+                $this->arguments['forceOnTop'], $this->arguments['allWrap'],
+                $this->arguments['excludeFromConcatenation'], $this->arguments['splitChar'], $this->arguments['async'],
+                $this->arguments['integrity']);
+        } else {
+            $this->pageRenderer->addJsFooterFile($file, $this->arguments['type'], $this->arguments['compress'], $this->arguments['forceOnTop'], $this->arguments['allWrap'], $this->arguments['excludeFromConcatenation'], $this->arguments['splitChar'], $this->arguments['async'], $this->arguments['integrity']);
+        }
     }
 
 }

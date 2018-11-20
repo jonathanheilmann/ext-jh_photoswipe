@@ -30,7 +30,7 @@ namespace Heilmann\JhPhotoswipe\ViewHelpers\Math;
  * Class DivisionViewHelper
  * @package Heilmann\JhPhotoswipe\ViewHelpers\Math
  */
-class DivisionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class DivisionViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
     /**
