@@ -1,0 +1,40 @@
+{namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
+
+<div id="jh-photoswipe-gallery-{data.uid}">
+    <f:alias map="{columnwidth: '{jh:math.division(dividend: \'12\', divisor: settings.flexform.preview_columns)}'}">
+        <f:for each="{files}" as="file" iteration="iterator">
+            <f:alias map="{mod: '{jh:math.modulo(dividend: iterator.index, divisor: settings.flexform.preview_columns)}'}">
+                <f:if condition="{mod} < 1">
+                    <f:then>
+                        <div class="row">
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{iterator.isFirst}"><div class="row"></f:if>
+                    </f:else>
+                </f:if>
+
+                <div class="col-{columnwidth}">
+                    <figure class="image">
+                        <jh-st-img src="{f:uri.image(image: file, maxHeight: settings.flexform.preview_height, maxWidth: settings.flexform.preview_width)}"
+                                   id="jh-photoswipe-item-{iterator.index}"
+                                   class="jh-photoswipe-item jh-photoswipe-gallery-{data.uid}"
+                                   img-class="cursor-pointer">
+                        </jh-st-img>
+                        <f:if condition="{file.description}">
+                            <figcaption class="caption">{file.description}</figcaption>
+                        </f:if>
+                    </figure>
+                </div>
+
+                <f:if condition="{jh:math.addition(a: mod, b: '1')} == {settings.flexform.preview_columns}">
+                    <f:then>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{iterator.isLast}"></div></f:if>
+                    </f:else>
+                </f:if>
+            </f:alias>
+        </f:for>
+    </f:alias>
+</div>

@@ -1,0 +1,128 @@
+.tx-jhphotoswipe * {
+    box-sizing: border-box;
+}
+
+.tx-jhphotoswipe .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.tx-jhphotoswipe .col,
+.tx-jhphotoswipe .col-1,
+.tx-jhphotoswipe .col-2,
+.tx-jhphotoswipe .col-3,
+.tx-jhphotoswipe .col-4,
+.tx-jhphotoswipe .col-5,
+.tx-jhphotoswipe .col-6,
+.tx-jhphotoswipe .col-7,
+.tx-jhphotoswipe .col-8,
+.tx-jhphotoswipe .col-9,
+.tx-jhphotoswipe .col-10,
+.tx-jhphotoswipe .col-11,
+.tx-jhphotoswipe .col-12 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.tx-jhphotoswipe .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.tx-jhphotoswipe .col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%
+}
+
+.tx-jhphotoswipe .col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%
+}
+
+.tx-jhphotoswipe .col-3 {
+    flex: 0 0 25%;
+    max-width: 25%
+}
+
+.tx-jhphotoswipe .col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%
+}
+
+.tx-jhphotoswipe .col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%
+}
+
+.tx-jhphotoswipe .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%
+}
+
+.tx-jhphotoswipe .col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%
+}
+
+.tx-jhphotoswipe .col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%
+}
+
+.tx-jhphotoswipe .col-9 {
+    flex: 0 0 75%;
+    max-width: 75%
+}
+
+.tx-jhphotoswipe .col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%
+}
+
+.tx-jhphotoswipe .col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%
+}
+
+.tx-jhphotoswipe .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%
+}
+
+.tx-jhphotoswipe figure {
+    display: block;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+}
+
+.tx-jhphotoswipe .float-right {
+    float: right !important;
+}
+
+.tx-jhphotoswipe .float-left {
+    float: left !important;
+}
+
+.tx-jhphotoswipe .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.tx-jhphotoswipe figure img,
+.tx-jhphotoswipe figure picture {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.tx-jhphotoswipe img {
+    vertical-align: middle;
+    border-style: none;
+}

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col">
+        <figure class="image">
+            <jh-st-img src="{f:uri.image(image: previewImage, maxHeight: settings.flexform.preview_height, maxWidth: settings.flexform.preview_width)}"
+                       id="jh-photoswipe-{data.uid}"
+                       img-class="cursor-pointer img-fluid{f:if(condition: '{previewOrient} == \'center\'',then:'',else:' float-{previewOrient}')}">
+            </jh-st-img>
+            <f:if condition="{previewImage.description}">
+                <figcaption class="caption">{previewImage.description}<br/><f:translate key="clickToOpenGallery" default="(Click image to open gallery)"/></figcaption>
+            </f:if>
+        </figure>
+    </div>
+</div>

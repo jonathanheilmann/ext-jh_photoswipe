@@ -3,14 +3,7 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <f:if condition="{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent,FluidStyledContent')}">
-        <f:then>
-            <f:render partial="MultiThumbnail/{jh:extension.inListLoaded(list:'BootstrapPackage,CssStyledContent,FluidStyledContent')}" arguments="{_all}" />
-        </f:then>
-        <f:else>
-            <f:render partial="MultiThumbnail/Custom.html" arguments="{_all}" />
-        </f:else>
-    </f:if>
+    <f:render partial="MultiThumbnail/Images.html" arguments="{_all}" />
 
     <jh:pageRenderer.addJsInlineCode name="tx_jhphotoswipe100_{data.uid}" addToFooter="true">
         var openPhotoSwipe{data.uid} = function(index) {
@@ -38,7 +31,7 @@
 
             var eTarget = e.target || e.srcElement;
 
-            openPhotoSwipe{data.uid}(eTarget.getAttribute('data-pswp-uid'));
+            openPhotoSwipe{data.uid}(eTarget.parentElement.getAttribute('data-pswp-uid'));
         }
 
         var galleryElements = document.querySelectorAll('.jh-photoswipe-gallery-{data.uid}');

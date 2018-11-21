@@ -1,6 +1,9 @@
 {namespace jh = Heilmann\JhPhotoswipe\ViewHelpers}
 
 <div class="tx-jhphotoswipe">
+    <f:if condition="{settings.files.commonCss}">
+        <jh:pageRenderer.addCssFile file="{settings.files.commonCss}" />
+    </f:if>
     <f:if condition="{settings.files.photoswipeCss}">
         <jh:pageRenderer.addCssFile file="{settings.files.photoswipeCss}" />
     </f:if>
@@ -17,6 +20,8 @@
     <f:if condition="{settings.files.openGalleryJs}">
         <jh:pageRenderer.addJsFile file="{settings.files.openGalleryJs}" addToFooter="true" />
     </f:if>
+
+    <jh:pageRenderer.addJsFile compress="false" excludeFromConcatenation="true" file="EXT:jh_photoswipe/Resources/Public/Vendor/jh-st-img/jhstimg.js"></jh:pageRenderer.addJsFile>
 
     <f:render section="main" />
 </div>

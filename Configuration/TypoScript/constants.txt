@@ -7,6 +7,8 @@ plugin.tx_jhphotoswipe.view {
 	layoutRootPath = EXT:jh_photoswipe/Resources/Private/Layouts/
 }
 
+# cat=plugin.tx_jhphotoswipe//09; type=string; label = common.css
+plugin.tx_jhphotoswipe.includeCommonCss = EXT:jh_photoswipe/Resources/Public/Styles/common.css
 # cat=plugin.tx_jhphotoswipe//010; type=string; label = photoswipe.css
 plugin.tx_jhphotoswipe.includePhotoswipeCss = EXT:jh_photoswipe/Resources/Public/Contrib/PhotoSwipe/photoswipe.css
 # cat=plugin.tx_jhphotoswipe//011; type=string; label = default-skin/default-skin.css
