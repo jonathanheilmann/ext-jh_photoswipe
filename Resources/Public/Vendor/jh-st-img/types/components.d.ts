@@ -17,14 +17,12 @@ export namespace Components {
     'imgClass': string;
     'sources': any;
     'src': string;
-    'srcset': string;
   }
   interface JhStImgAttributes extends StencilHTMLAttributes {
     'alt'?: string;
     'imgClass'?: string;
     'sources'?: any;
     'src'?: string;
-    'srcset'?: string;
   }
 }
 

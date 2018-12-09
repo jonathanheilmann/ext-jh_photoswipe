@@ -1,4 +1,7 @@
-export class JhStImg {
+/*! Built with http://stenciljs.com */
+import { h } from '../jhstimg.core.js';
+
+class JhStImg {
     constructor() {
         this._sources = [];
         this._isFallbackImageLoaded = false;
@@ -146,5 +149,7 @@ export class JhStImg {
             "name": "window:orientationchange",
             "method": "windowRrientationchangeHandler"
         }]; }
-    static get style() { return "/**style-placeholder:jh-st-img:**/"; }
+    static get style() { return "jh-st-img{display:block}jh-st-img img{max-width:100%;max-height:100%}"; }
 }
+
+export { JhStImg };

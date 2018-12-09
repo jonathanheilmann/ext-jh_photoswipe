@@ -38,23 +38,9 @@
           "watch": [
             "srcWatchHandler"
           ]
-        },
-        {
-          "name": "srcset",
-          "type": "String",
-          "attr": "srcset",
-          "watch": [
-            "srcsetWatchHandler"
-          ]
         }
       ],
       "states": [
-        {
-          "name": "_hasIntersectionObserver"
-        },
-        {
-          "name": "_isHandleImageFallback"
-        },
         {
           "name": "_sources"
         }
